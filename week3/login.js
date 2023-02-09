@@ -46,10 +46,10 @@ const app = createApp({
   },
 
   //一開始確保程式碼可以運作才加的
-  mounted() {
-    console.log('mounted');
-    console.log(`${site}admin/signin`);
-  },
+  // mounted() {
+  //   console.log('mounted');
+  //   console.log(`${site}admin/signin`);
+  // },
 });
 
 app.mount('#app');
