@@ -115,24 +115,21 @@
                     新增圖片
                   </button>
                 </div>
-                  <button class="btn btn-outline-danger btn-sm d-block w-100" @click="createImages">
-                    新增圖片
-                  </button>
                 </div>
                 <div class="col-sm-8">
                   <div class="mb-3">
                     <label for="title" class="form-label">標題</label>
-                    <input id="title" type="text" class="form-control" placeholder="請輸入標題">
+                    <input id="title" v-model="tempProduct.title"  type="text" class="form-control" placeholder="請輸入標題">
                   </div>
 
                   <div class="row">
                     <div class="mb-3 col-md-6">
                       <label for="category" class="form-label">分類</label>
-                      <input id="category" v-modal="tempProduct" type="text" class="form-control" placeholder="請輸入分類">
+                      <input id="category" v-model="tempProduct.category" type="text" class="form-control" placeholder="請輸入分類">
                     </div>
                     <div class="mb-3 col-md-6">
                       <label for="price" class="form-label">單位</label>
-                      <input id="unit" type="text" v-modal="tempProduct.unit" class="form-control" placeholder="請輸入單位">
+                      <input id="unit" type="text" v-model="tempProduct.unit" class="form-control" placeholder="請輸入單位">
                     </div>
                   </div>
 
