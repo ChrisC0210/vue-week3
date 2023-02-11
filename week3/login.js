@@ -37,7 +37,7 @@ const app = createApp({
           //add cookie token
           //setting expired time
           document.cookie = `hexToken=${token};expires=${new Date(expired)};path=/`;
-          window.location = './vue-week3/week3/products.html';
+          window.location = './products.html';
         })
         .catch((err) =>{
           console.log(err);
