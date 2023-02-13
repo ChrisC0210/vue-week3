@@ -126,7 +126,7 @@
                     <label for="imageUrl" class="form-label">圖片網址</label>
                     <input v-model="product.imagesUrl[key]" type="text" class="form-control" placeholder="請輸入圖片連結" >
                   </div>
-                  <img :src="image" alt="img-fluid" >
+                  <img :src="image" alt="img-fluid" class="col-12">
                 </div>
                 <div v-if="!product.imagesUrl.length || product.imagesUrl[product.imagesUrl.length-1]" >
                   <button class="btn btn-outline-primary btn-sm d-block w-100" 
