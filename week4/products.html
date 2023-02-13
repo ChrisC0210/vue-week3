@@ -68,7 +68,7 @@
         </tbody>
       </table>
       <!-- pagination -->
-      <pagination :page="pagination" @emit-pages="getData"></pagination>
+      <pagination :pages="pagination" @emit-pages="getData"></pagination>
       <!-- pagination -->
     </div>
     <!-- Modal -->
@@ -139,6 +139,7 @@
                     刪除圖片
                   </button>
                 </div>
+              </div>
                 <div v-else>
                   <button class="btn btn-outline-primary btn-sm d-block w-100" @click="createImages" >
                     新增圖片
@@ -148,45 +149,45 @@
               <div class="col-sm-8">
                 <div class="form-group mb-3">
                   <label for="title" class="form-label">標題</label>
-                  <input id="title" v-modal="product.title" type="text" class="form-control" placeholder="請輸入標題">
+                  <input id="title" v-model="product.title" type="text" class="form-control" placeholder="請輸入標題">
                 </div>
 
                 <div class="row mb-3">
                   <div class="form-group col-md-6">
                     <label for="category" class="form-label">分類</label>
-                    <input id="category" v-modal="product.category" type="text" class="form-control" placeholder="請輸入分類"  >
+                    <input id="category" v-model="product.category" type="text" class="form-control" placeholder="請輸入分類"  >
                   </div>
                   <div class="form-group col-md-6">
                     <label for="unit" class="form-label">單位</label>
-                    <input type="text" id="unit" v-modal="product.unit" class="form-control" placeholder="請輸入單位" >
+                    <input type="text" id="unit" v-model="product.unit" class="form-control" placeholder="請輸入單位" >
                   </div>
                 </div>
 
                 <div class="row mb-3">
                   <div class="form-group col-md-6">
                     <label for="origin_price" class="form-label">原價</label>
-                    <input id="origin_price" v-modal="product.origin_price" type="number" min="0" class="form-control" placeholder="請輸入原價"  >
+                    <input id="origin_price" v-model="product.origin_price" type="number" min="0" class="form-control" placeholder="請輸入原價"  >
                   </div>
                   <div class="form-group col-md-6">
                     <label for="price" class="form-label">售價</label>
-                    <input type="text" id="price" v-modal="product.price" class="form-control" placeholder="請輸入售價" >
+                    <input type="text" id="price" v-model="product.price" class="form-control" placeholder="請輸入售價" >
                   </div>
                 </div>
                 <hr>
 
                 <div class="form-group mb-3">
                   <label for="description" class="form-label">產品描述</label>
-                  <textarea id="description" v-modal="product.description" type="text" class="form-control" placeholder="請輸入產品描述">
+                  <textarea id="description" v-model="product.description" type="text" class="form-control" placeholder="請輸入產品描述">
                   </textarea>
                 </div>
                 <div class="form-group mb-3">
                   <label for="content" class="form-label">產品內容</label>
-                  <textarea id="content" v-modal="product.content" type="text" class="form-control" placeholder="請輸入說明內容">
+                  <textarea id="content" v-model="product.content" type="text" class="form-control" placeholder="請輸入說明內容">
                   </textarea>
                 </div>
                 <div class="form-group mb-3">
                   <div class="form-check">
-                    <input id="is_enabled" v-modal="product.is_enabled" class="form-check-input" type="ckeckbox" :true-value="1" :false-value="0" >
+                    <input id="is_enabled" v-model="product.is_enabled" class="form-check-input" type="ckeckbox" :true-value="1" :false-value="0" >
                     <label for="is_enabled" class="form-check-label">是否啟用</label>
                   </div>
                 </div>
