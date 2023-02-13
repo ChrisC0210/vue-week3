@@ -13,29 +13,20 @@ const app = createApp({
   methods: {
     login() {
       //確認請求是否發送成功
-      console.log(this.user);
       const url = `${site}admin/signin`;
       axios.post(url, this.user)
         .then((res) => {
           //解構{}
           const { token, expired } = res.data;
-          //console.log(token, expired);
           //add cookie token
           //setting expired time
           document.cookie = `hexToken=${token};expires=${new Date(expired)};path=/`;
           window.location = './products.html';
         })
         .catch((err) =>{
-          console.log(err);
         })
     }
   },
-
-  //一開始確保程式碼可以運作才加的
-  // mounted() {
-  //   console.log('mounted');
-  //   console.log(`${site}admin/signin`);
-  // },
 });
 
 app.mount('#app');

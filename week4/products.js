@@ -33,7 +33,7 @@ const app = createApp({
       })
     },
     getData(page = 1) {
-      const url = `${this.apiUrl}/api/${this.apiPath}/admin/products?page={page}`;
+      const url = `${this.apiUrl}/api/${this.apiPath}/admin/products?page=${page}`;
       axios.get(url)
       .then((res) => {
         const { products, pagination } = res.data;
@@ -152,8 +152,8 @@ app.component('delProductModal', {
     },
     hideModal() {
       delProductModal.hide();
-    },
-  },
-});
+    }
+  }
+})
 
 app.mount('#app');
