@@ -1,7 +1,7 @@
 import productModal from './productModal.js';
 
 const { defineRule, Form, Field, ErrorMessage, configure } = VeeValidate;
-const { required, email, min, max } = VeeValidate;
+const { required, email, min, max } = VeeValidateRules;
 const { localize, loadLocaleFromURL } = VeeValidateI18n;
 
 defineRule('required', required);

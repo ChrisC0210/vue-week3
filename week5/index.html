@@ -64,7 +64,7 @@
         </table>
         <!-- 購物車列表 -->
         <div class="text-end">
-          <button class="btn btn-outline-danger" type="button" @click="deleteAllCart" >清空購物車</button>
+          <button class="btn btn-outline-danger" type="button" @click="deleteAllCarts" >清空購物車</button>
         </div>
         <table class="table align-middle">
           <thead>
@@ -95,7 +95,7 @@
                   <div class="input-group input-group-sm">
                     <div class="input-group mb-3">
                       <input min="1" type="number" class="form-control" v-modal.number="item.qty" @blur="updateCart(item)"
-                      :disabled="loadingStatus.loadingItem === item.id ||" >
+                      :disabled="loadingStatus.loadingItem === item.id" >
                       <span class="input-group-text" id="basic-addon2">{{ item.product.unit }}</span>
                     </div>
                   </div>
@@ -177,7 +177,7 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-sm-6">
-            <img class="img-fluid" :src="product.imageUrl" alt="">
+            <img class="img-fluid" :src="product.imagesUrl" alt="">
       </div>
           <div class="col-sm-6">
             <span class="badge bg-primary rounded-pill">{{ product.category }}</span>
@@ -189,7 +189,7 @@
             <div>
               <div class="input-group">
                 <input type="number" class="form-control"
-                      v-madel.number="qty" min="1">
+                      v-model.number="qty" min="1">
                 <button type="button" class="btn btn-primary"
                 @click="$emit('add-to-cart', product.id, qty)"
                 >加入購物車</button>
