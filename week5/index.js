@@ -1,6 +1,6 @@
 import productModal from './productModal.js';
 
-const { defineRule, From, Field, ErrorMessage, configure } = VeeValidate;
+const { defineRule, Form, Field, ErrorMessage, configure } = VeeValidate;
 const { required, email, min, max } = VeeValidate;
 const { localize, loadLocaleFromURL } = VeeValidateI18n;
 
@@ -40,12 +40,12 @@ Vue.createApp({
   },
   components: {
     VForm: Form,
-    Vfield: Field,
+    VField: Field,
     ErrorMessage: ErrorMessage,
   },
   methods: {
     getProducts() {
-      const url = `${site}/api/${apiPath}/products`;
+      const url = `${site}/api/${api_path}/products`;
       axios.get(url).then((res) =>{
         this.products = res.data.products;
       }).catch((err) =>{
@@ -53,7 +53,7 @@ Vue.createApp({
       });
     },
     getProduct(id) {
-      const url =  `${site}/api/${apiPath}/product/${id}`;
+      const url =  `${site}/api/${api_path}/product/${id}`;
       this.loadingStatus.loadingItem = id;
       axios.get(url).then((res)=>{
         this.loadingStatus.loadingItem = '';
@@ -64,7 +64,7 @@ Vue.createApp({
       });
     },
     addToCart(id, qty = 1) {
-      const url = `${site}/api/${apiPath}/cart`;
+      const url = `${site}/api/${api_path}/cart`;
       this.loadingStatus.loadingItem = id;
       const cart = {
         product_id: id,
@@ -81,7 +81,7 @@ Vue.createApp({
     },
     updateCart(data) {
       this.loadingStatus.loadingItem = data.id;
-      const url = `${site}/api/${apiPath}/cart/${data.id}`;
+      const url = `${site}/api/${api_path}/cart/${data.id}`;
       const cart = {
         product_id:data.product_id,
         qty: data.qty,
@@ -96,7 +96,7 @@ Vue.createApp({
       });
     },
     deleteAllCarts() {
-      const url = `${site}/api/${apiPath}/carts`;
+      const url = `${site}/api/${api_path}/carts`;
       axios.delete(url).then((res) =>{
         alert(res.data.message);
         this.getCart();
@@ -105,7 +105,7 @@ Vue.createApp({
       });
     },
     getCart() {
-      const url = `${site}/api/${apiPath}/cart`;
+      const url = `${site}/api/${api_path}/cart`;
       axios.get(url).then((res) => {
         this.cart = res.data.data;
       }).catch((err) => {
@@ -113,7 +113,7 @@ Vue.createApp({
       });
     },
     removeCartItem(id) {
-      const url = `${site}/api/${apiPath}/cart/${id}`;
+      const url = `${site}/api/${api_path}/cart/${id}`;
       this.loadingStatus.loadingItem = id;
       axios.delete(url).then((res) =>{
         alert(res.data.message);
@@ -124,7 +124,7 @@ Vue.createApp({
       });
     },
     createOrder() {
-      const url = `${site}/api/${apiPath}/order`;
+      const url = `${site}/api/${api_path}/order`;
       const order = this.form;
       axios.post(url, { data:order }).then((res) => {
         alert(res.data.message);
@@ -136,10 +136,10 @@ Vue.createApp({
     },
   },
   mounted() {
-    this.getProducts(),
+    this.getProducts();
     this.getCart();
   },
 })
 .component('productModal' , productModal)
-.mout('#app');
+.mount('#app');
 
